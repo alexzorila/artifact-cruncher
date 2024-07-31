@@ -55,3 +55,4 @@ wls --install Ubuntu
 * Plaso https://github.com/log2timeline/plaso
 * Timesketch https://github.com/google/timesketch
 * Velociraptor https://github.com/Velocidex/velociraptor
+* CyLR https://github.com/orlikoski/CyLR
