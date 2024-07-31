@@ -32,7 +32,7 @@ else
 fi
 
 # Confirm user choice
-read -p "Continue (y/y)?" choice
+read -p "Continue (y/y)? " choice
 case "$choice" in 
   y|Y)
   	# File naming and working directory setup
