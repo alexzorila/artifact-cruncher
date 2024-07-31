@@ -44,8 +44,7 @@ case "$choice" in
 	cp $filename $workdir
 	cd $workdir
 	
-	
-	### Parse Collection to Plaso ###	
+	### Parse Collection to Plaso ###
 	# Extract MFT
 	unzip -o -j $filename */\$MFT -d $workdir
 	
