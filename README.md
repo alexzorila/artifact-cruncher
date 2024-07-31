@@ -13,7 +13,8 @@ Crunch artifacts found in Forensic Triage Images to plaso format ready to ingest
 ```
 git clone https://github.com/alexzorila/artifact-cruncher2.git
 cd artifact-cruncher2
-bash ./setup.sh
+chmod +x ./setup.sh
+./setup.sh
 ```
 ### Parse artifacts
 ```
