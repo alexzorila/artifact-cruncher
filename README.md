@@ -25,4 +25,5 @@ Collection-DC_RLAB_local-2024-07-06T15_52_44Z_SansTriage.plaso
 ```
 ## Resources
 * MFTECmd https://github.com/EricZimmerman/MFTECmd
-* Plaso https://plaso.readthedocs.io/en/latest/index.html
+* Plaso https://github.com/log2timeline/plaso
+* Timesketch https://github.com/google/timesketch
