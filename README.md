@@ -1,19 +1,18 @@
-# Auto SuperTimeline
-Triage disk image to supertimeline. 
+# Artifact Cruncher 2
+Crunch artifacts found in Forensic Triage Images to plaso format ready to ingest into Timesketch to enable searching and reporting.
 * $MFT parsed separately using MFTECmd
 * Remaning triage ZIP parsed using Plaso
 * Output merged into .plaso file
-* Ready to import into Timesketch
-* Optimized for usage with WSL2 by working inside the linux file system.
+* Optimized for usage with WSL2
 
 ## Prerequisites
 * Ubuntu 22.04
 
 ## Usage
-### Setup environment
+### Install
 ```
-git clone https://github.com/alexzorila/autosupertimeline.git
-cd autosupertimeline
+git clone https://github.com/alexzorila/artifact-cruncher2.git
+cd artifact-cruncher2
 ./setup.sh
 ```
 ### Parse artifacts
