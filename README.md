@@ -1,7 +1,5 @@
 # Artifact Cruncher 2
-Crunch artifacts found in Forensic Triage Images to Plaso format ready for Timesketch ingestion.
-
-Optimizations for speed:
+Crunch artifacts found in Forensic Triage Images to Plaso format ready for Timesketch ingestion. Script optimised for ease of use and speed.
 * $MFT parsed separately using MFTECmd
 * Remaning triage ZIP parsed using Plaso
 * Output merged into .plaso file
