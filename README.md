@@ -19,7 +19,7 @@ chmod +x ./setup.sh
 ```
 ### Parse artifacts
 ```
-parse -f MSEDGEWIN10.zip
+parse -f DC_RLAB_local-2024-07-06T15_52_44Z_SansTriage.zip
 ```
 ### Output
 ```
