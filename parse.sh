@@ -33,46 +33,46 @@ fi
 
 # Confirm user choice
 read -p "Continue (y/y)? " choice
-case "$choice" in 
+case "$choice" in
   y|Y)
-  	# File naming and working directory setup
-	basename=$(basename $filename .zip)
-	datetime=$(date -d "today" +"%Y%m%d%H%M")
-	originalwd=$PWD
-	workdir="/tmp/$datetime"
-	mkdir $workdir
-	cp $filename $workdir
-	cd $workdir
-	
-	### Parse Collection to Plaso ###
-	# Extract MFT
-	unzip -o -j $filename */\$MFT -d $workdir
-	
-	# Parse MFT to body file
-	MFTECmd -f $workdir/\$MFT --body $workdir --bodyf $basename.mft.body --bdl c
-	
-	# Parse Triage image to Plaso file, excluding MFT
-	docker run -v .:/data log2timeline/plaso \
-		log2timeline --parsers \!mft \
-		--storage_file /data/$basename.plaso /data/$filename
-	
-	# Merge MFT body file with Triage image Plaso
-	docker run -v .:/data log2timeline/plaso \
-		log2timeline -z UTC --parsers mactime \
-		--storage_file /data/$basename.plaso /data/$basename.mft.body
-	
-	
-	# Retrieve parsed data
-	mv -f $workdir/$basename.plaso $originalwd
-	
-	# Clean working directory
-	rm -rf $workdir
-	exit 0
+        # File naming and working directory setup
+        basename=$(basename $filename .zip)
+        datetime=$(date -d "today" +"%Y%m%d%H%M")
+        workdir="/tmp/$datetime"
+        cleandir=$PWD/$datetime
+        mkdir $workdir $cleandir
+        cp $filename $workdir
+        cd $workdir
+
+        ### Parse Collection to Plaso ###
+        # Extract MFT
+        unzip -o -j $filename */\$MFT -d $workdir
+
+        # Parse MFT to body file
+        MFTECmd -f $workdir/\$MFT --body $workdir --bodyf $basename.mft.body --bdl c
+
+        # Parse Triage image to Plaso file, excluding MFT
+        docker run -v .:/data log2timeline/plaso \
+                log2timeline --parsers \!mft \
+                --storage_file /data/$basename.plaso /data/$filename
+
+        # Merge MFT body file with Triage image Plaso
+        docker run -v .:/data log2timeline/plaso \
+                log2timeline -z UTC --parsers mactime \
+                --storage_file /data/$basename.plaso /data/$basename.mft.body
+
+        # Convert Plaso to CSV
+        docker run -v .:/data log2timeline/plaso \
+                psort -w /data/$basename.csv /data/$basename.plaso
+
+        # Cleanup
+        mv -f $workdir/$basename.plaso $workdir/$basename.csv "$cleandir" && rm -rf $workdir
+        exit 0
   ;;
   n|N) echo -e "No selected. Exiting.\n"
-	exit 1
+        exit 1
   ;;
   *) echo -e "Invalid choice. Please answer y or n.\n"
-	exit 1
+        exit 1
   ;;
 esac
