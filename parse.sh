@@ -38,28 +38,31 @@ case "$choice" in
         # File naming and working directory setup
         basename=$(basename $filename .zip)
         datetime=$(date -d "today" +"%Y%m%d%H%M")
+        mftfiles=$(unzip -l $filename | grep -i mft | awk '{print $4}')
         workdir="/tmp/$datetime"
         cleandir=$PWD/$datetime
-        mkdir $workdir $cleandir
+        mkdir $workdir $cleandir $workdir/MFT
         cp $filename $workdir
         cd $workdir
 
         ### Parse Collection to Plaso ###
-        # Extract MFT
-        unzip -o -j $filename */\$MFT -d $workdir
-
-        # Parse MFT to body file
-        MFTECmd -f $workdir/\$MFT --body $workdir --bodyf $basename.mft.body --bdl c
+        # Extract each MFT and parse to bodyfile
+        for mft in $mft_files; do
+	        drive=$(echo $mft | grep -oP '(?<=%5C%5C.%5C).*(?=%3A/\$MFT)')
+	        unzip -o -j $filename $mft -d $workdir          
+            MFTECmd -f $workdir/\$MFT --body $workdir/MFT --bodyf $drive.mft.body --bdl $drive
+            rm -rf \$MFT
+        done
 
         # Parse Triage image to Plaso file, excluding MFT
         docker run -v .:/data log2timeline/plaso \
                 log2timeline --parsers \!mft \
                 --storage_file /data/$basename.plaso /data/$filename
 
-        # Merge MFT body file with Triage image Plaso
+        # Merge MFT bodyfile(s) with Triage image Plaso
         docker run -v .:/data log2timeline/plaso \
                 log2timeline -z UTC --parsers mactime \
-                --storage_file /data/$basename.plaso /data/$basename.mft.body
+                --storage_file /data/$basename.plaso /data/MFT
 
         # Convert Plaso to CSV
         docker run -v .:/data log2timeline/plaso \
