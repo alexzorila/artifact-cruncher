@@ -47,7 +47,7 @@ case "$choice" in
 
         ### Parse Collection to Plaso ###
         # Extract each MFT and parse to bodyfile
-        for mft in $mft_files; do
+        for mft in $mftfiles; do
 	        drive=$(echo $mft | grep -oP '(?<=%5C%5C.%5C).*(?=%3A/\$MFT)')
 	        unzip -o -j $filename $mft -d $workdir          
             MFTECmd -f $workdir/\$MFT --body $workdir/MFT --bodyf $drive.mft.body --bdl $drive
