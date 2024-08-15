@@ -9,7 +9,7 @@ fi
 # Install dependencies
 echo -e "\n[$(date '+%d/%m/%Y %H:%M:%S')]: Installing dependencies."
 apt update -y
-apt install dotnet6 unzip -y
+apt install dotnet6 unzip sleuthkit -y
 
 # Install MFTECmd
 echo -e "\n\n[$(date '+%d/%m/%Y %H:%M:%S')]: Installing MFTECmd."
