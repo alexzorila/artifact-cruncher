@@ -16,19 +16,22 @@ For WSL2 usage and Ubuntu install see [Cheat Sheet](https://github.com/alexzoril
 ```
 PS> .\velociraptor_sans_triage.exe
 ```
-Disk Triage Collector Docs: [Velociraptor](https://docs.velociraptor.app/docs/offline_triage/), [KAPE](https://ericzimmerman.github.io/KapeDocs/#!Pages%5C5.-gkape.md), [CyLR](https://github.com/orlikoski/CyLR?tab=readme-ov-file#examples)
+Docs: [Velociraptor](https://docs.velociraptor.app/docs/offline_triage/), [KAPE](https://ericzimmerman.github.io/KapeDocs/#!Pages%5C5.-gkape.md), [CyLR](https://github.com/orlikoski/CyLR?tab=readme-ov-file#examples)
 
 ### Parse
 ```
 WSL> parse -f DESKTOP-123.zip
 ```
+Docs: [artifact-cruncher/parse](https://github.com/alexzorila/artifact-cruncher2/tree/main/parse)
 
 ### Analyse
-| Splunk      | Details |
-|-------------|---------|
-CSV Ingest    | Copy CSV data to /artifact-cruncher2/splunk/splunk-data
-Web GUI       | http://localhost:8000
-Web Login     | admin:Password!
+| Splunk        | Details |
+|---------------|---------|
+| CSV Ingest    | Copy CSV data to /artifact-cruncher2/splunk/splunk-data |
+| Web GUI       | http://localhost:8000 |
+| Web Login     | admin:Password! |
+
+Docs: [artifact-cruncher/splunk](https://github.com/alexzorila/artifact-cruncher2/tree/main/splunk)
 
 ## Docker Cheat Sheet
 Using `WSL2` run one or more of the following `commands` to manage a Docker compose instance.
