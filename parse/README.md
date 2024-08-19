@@ -1,4 +1,4 @@
-# Artifact Cruncher Backend (MFTECmd, Plaso)
+# Artifact Cruncher Backend (Plaso) (MFTECmd)
 Crunch artifacts found in Forensic Triage Images to Plaso format ready for Timesketch ingestion. Script optimised for ease of use and speed.
 * $MFT parsed separately using MFTECmd
 * Remaining Triage ZIP parsed using Plaso
