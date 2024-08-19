@@ -16,7 +16,7 @@ For WSL2 usage and Ubuntu install see [Cheat Sheet](#wsl-2-cheat-sheet).
 ```
 PS> .\velociraptor_sans_triage.exe
 ```
-Docs: [Velociraptor](https://docs.velociraptor.app/docs/offline_triage/), [KAPE](https://ericzimmerman.github.io/KapeDocs/#!Pages%5C5.-gkape.md), [CyLR](https://github.com/orlikoski/CyLR?tab=readme-ov-file#examples)
+Docs: [Velociraptor](https://docs.velociraptor.app/docs/offline_triage/#offline-collections), [KAPE](https://ericzimmerman.github.io/KapeDocs/#!Pages%5C5.-gkape.md), [CyLR](https://github.com/orlikoski/CyLR?tab=readme-ov-file#examples)
 
 ### Parse
 ```
