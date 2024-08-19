@@ -31,7 +31,7 @@ Collection-DC_RLAB_local-2024-07-06T15_52_44Z_SansTriage.plaso
 * CyLR: https://github.com/orlikoski/CyLR?tab=readme-ov-file#examples
 
 ## Manage WSL2 Cheat Sheet
-Using Windows `Terminal` run one or more of the following `commands` as needed.
+Using Windows `Terminal` run one or more of the following `commands` to manage an Ubunt guest install.
 | Operation | Command |
 | ----------|---------|
 List available distros for install | `wsl -l -o`
