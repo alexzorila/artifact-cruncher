@@ -22,7 +22,7 @@ Docs: [Velociraptor](https://docs.velociraptor.app/docs/offline_triage/), [KAPE]
 ```
 WSL> parse -f DESKTOP-123.zip
 ```
-Docs: [artifact-cruncher/parse](https://github.com/alexzorila/artifact-cruncher2/tree/main/parse)
+Docs: [artifact-cruncher/parse](parse)
 
 ### Analyse
 | Splunk        | Details |
