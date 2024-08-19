@@ -12,7 +12,7 @@ cd artifact-cruncher2/parse
 chmod +x ./setup.sh
 ./setup.sh
 ```
-For WSL2 usage and Ubuntu install see [Cheat Sheet](main/README.md#wsl-2-cheat-sheet).
+For WSL2 usage and Ubuntu install see [Cheat Sheet](../README.md#wsl-2-cheat-sheet).
 
 ## Usage
 ### Launch WSL 2
