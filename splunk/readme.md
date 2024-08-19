@@ -20,7 +20,7 @@ Copy CSV data to `/artifact-cruncher2/splunk/splunk-data` to be ingested into th
 Access data via the Splung Web GUI.
 
 | Description | Details |
-|---------------|---------|
+|-------------|---------|
 Web interface | http://localhost:8000
 User:Pass | admin:Password!
 Show data (SPL) | earliest=0
