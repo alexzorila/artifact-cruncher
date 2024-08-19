@@ -12,7 +12,7 @@ cd artifact-cruncher2/parse
 chmod +x ./setup.sh
 ./setup.sh
 ```
-For WSL2 usage and Ubuntu install see [Cheat Sheet](https://github.com/alexzorila/artifact-cruncher2/tree/main?tab=readme-ov-file#manage-wsl2-cheat-sheet).
+For WSL2 usage and Ubuntu install see [Cheat Sheet](readme-ov-file#wsl-2-cheat-sheet).
 
 ## Usage
 ### Launch WSL 2
@@ -34,3 +34,4 @@ DC_RLAB_local.csv
 ## Resources
 * MFTECmd https://github.com/EricZimmerman/MFTECmd
 * Plaso https://github.com/log2timeline/plaso
+* Artifact Cruncher https://github.com/alexzorila/artifact-cruncher
