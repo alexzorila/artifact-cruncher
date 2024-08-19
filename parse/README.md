@@ -13,7 +13,7 @@ Crunch artifacts found in Forensic Triage Images to Plaso format ready for Times
 ### Install
 ```
 git clone https://github.com/alexzorila/artifact-cruncher2.git
-cd artifact-cruncher2
+cd artifact-cruncher2/parse
 chmod +x ./setup.sh
 ./setup.sh
 ```
