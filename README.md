@@ -24,6 +24,7 @@ parse -f DC_RLAB_local-2024-07-06T15_52_44Z_SansTriage.zip
 ### Output
 ```
 Collection-DC_RLAB_local-2024-07-06T15_52_44Z_SansTriage.plaso
+Collection-DC_RLAB_local-2024-07-06T15_52_44Z_SansTriage.csv
 ```
 ## Collect Triage Image
 * Velociraptor: https://docs.velociraptor.app/docs/offline_triage/
