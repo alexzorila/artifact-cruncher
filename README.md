@@ -60,5 +60,4 @@ Docs: [WSL Basic Commands](https://learn.microsoft.com/en-us/windows/wsl/basic-c
 
 ## Resources
 * https://github.com/alexzorila/artifact-cruncher
-* https://github.com/Velocidex/velociraptor
 * https://dfir-kev.medium.com/plaso-super-timelines-in-splunk-a563181a1da5
