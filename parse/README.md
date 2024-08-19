@@ -1,50 +1,37 @@
 # Artifact Cruncher Backend (Plaso) (MFTECmd)
-Crunch artifacts found in Forensic Triage Images to Plaso format ready for Timesketch ingestion. Script optimised for ease of use and speed.
-* $MFT parsed separately using MFTECmd
-* Remaining Triage ZIP parsed using Plaso
-* Output merged into .plaso file and CSV
-* Optimized for usage with WSL2
+Parse disk triage collection to supertimeline flat file from Windows Terminal using WSL2 and Docker. Intended to convert ZIP to Plaso and CSV. Output compatible with Timesketch or Splunk ingestion. Individually parse $MFT with MFTECmd and remaining artifacts with Plaso for speed.
 
-## Prerequisites
-* Ubuntu 22.04
-* Forensic Triage Image
+* Data directory: `Windows file system`, `current directory`, `.zip`
+* Tested on: `Windows 11, WSL2, Ubuntu 22.04 guest`
 
-## Usage
-### Install
+## Quick Install
+From an `Ubuntu` guest inside `WSL2` on Windows 11 run the following code snippet as `root`.
 ```
 git clone https://github.com/alexzorila/artifact-cruncher2.git
 cd artifact-cruncher2/parse
 chmod +x ./setup.sh
 ./setup.sh
 ```
-### Parse artifacts
-```
-parse -f DC_RLAB_local-2024-07-06T15_52_44Z_SansTriage.zip
-```
-### Output
-```
-Collection-DC_RLAB_local-2024-07-06T15_52_44Z_SansTriage.plaso
-Collection-DC_RLAB_local-2024-07-06T15_52_44Z_SansTriage.csv
-```
-## Collect Triage Image
-* Velociraptor: https://docs.velociraptor.app/docs/offline_triage/
-* KAPE: https://ericzimmerman.github.io/KapeDocs/#!Pages%5C5.-gkape.md
-* CyLR: https://github.com/orlikoski/CyLR?tab=readme-ov-file#examples
+For WSL2 usage and Ubuntu install see [Cheat Sheet](https://github.com/alexzorila/artifact-cruncher2/tree/main?tab=readme-ov-file#manage-wsl2-cheat-sheet).
 
-## Manage WSL2 Cheat Sheet
-Using Windows `Terminal` run one or more of the following `commands` to manage an Ubunt guest install.
-| Operation | Command |
-| ----------|---------|
-List available distros for install | `wsl -l -o`
-Install Ubuntu distro | `wls --install Ubuntu`
-List installed distros | `wsl -l`
-Restart all distros | `wsl --shutdown`
-Stop Ubuntu distro | `wsl --terminate Ubuntu`
-Uninstall Ubuntu distro |  `wls --unregister Ubuntu`
+## Usage
+### Launch WSL 2
+From the `Windows File System` navigate to the zip file directory. Open the `WSL2` distribution in the `current directory`.
+
+### Parse
+Expect 15 to 45 minutes parsing time, depending on the collection file size.
+```
+parse -f DC_RLAB_local.zip
+```
+
+### Output
+Plaso and CSV flat files will be created in the same directory tree as the zip file.
+
+```
+DC_RLAB_local.plaso
+DC_RLAB_local.csv
+```
 
 ## Resources
 * MFTECmd https://github.com/EricZimmerman/MFTECmd
 * Plaso https://github.com/log2timeline/plaso
-* Timesketch https://github.com/google/timesketch
-* Velociraptor https://github.com/Velocidex/velociraptor
-* CyLR https://github.com/orlikoski/CyLR
