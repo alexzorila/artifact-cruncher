@@ -13,7 +13,7 @@ cd artifact-cruncher2/splunk
 chmod +x ./setup.sh
 ./setup.sh
 ```
-For WSL2 usage and Ubuntu install see [Cheat Sheet](https://github.com/alexzorila/artifact-cruncher2/edit/main/README.md#manage-wsl2-cheat-sheet).
+For WSL2 usage and Ubuntu install see [Cheat Sheet](https://github.com/alexzorila/artifact-cruncher2/tree/main?tab=readme-ov-file#manage-wsl2-cheat-sheet).
 
 ## Usage
 Copy CSV data to `/artifact-cruncher2/splunk/splunk-data` to be ingested into the local Docker Splunk deployment.
