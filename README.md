@@ -58,6 +58,4 @@ Using Windows `Terminal` run one or more of the following `commands` to manage a
 
 Docs: [WSL Basic Commands](https://learn.microsoft.com/en-us/windows/wsl/basic-commands)
 
-## Resources
-* https://github.com/alexzorila/artifact-cruncher
-* https://dfir-kev.medium.com/plaso-super-timelines-in-splunk-a563181a1da5
+
