@@ -1,0 +1,12 @@
+services:
+  splunk:
+    image: splunk/splunk:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - SPLUNK_START_ARGS=--accept-license
+      - SPLUNK_PASSWORD=Passw0rd!
+    volumes:
+      - ./splunk-data:/home/splunk/data
+      - ./bootstrap.sh:/home/splunk/bootstrap.sh
+    restart: unless-stopped
