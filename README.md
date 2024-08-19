@@ -2,7 +2,7 @@
 Crunch artifacts found in Forensic Triage Images to Plaso format ready for Timesketch ingestion. Script optimised for ease of use and speed.
 * $MFT parsed separately using MFTECmd
 * Remaining Triage ZIP parsed using Plaso
-* Output merged into .plaso file
+* Output merged into .plaso file and CSV
 * Optimized for usage with WSL2
 
 ## Prerequisites
