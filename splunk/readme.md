@@ -19,7 +19,7 @@ For WSL2 usage and Ubuntu install see [Cheat Sheet](https://github.com/alexzoril
 Copy CSV data to `/artifact-cruncher2/splunk/splunk-data` to be ingested into the local Docker Splunk deployment.
 Access data via the Splung Web GUI.
 
-| Key | Value |
+| Description | Details |
 |---------------|---------|
 Web interface | http://localhost:8000
 User:Pass | admin:Password!
