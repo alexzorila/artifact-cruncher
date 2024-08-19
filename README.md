@@ -31,25 +31,16 @@ Collection-DC_RLAB_local-2024-07-06T15_52_44Z_SansTriage.plaso
 * CyLR: https://github.com/orlikoski/CyLR?tab=readme-ov-file#examples
 
 ## Manage WSL2 Cheat Sheet
-```
-# List installed distros
-wsl -l
+Using Windows `Terminal` run one or more of the following `commands` as needed.
+| Operation | Command |
+| ----------|---------|
+List available distros for install | `wsl -l -o`
+Install ubuntu distro | `wls --install Ubuntu`
+List installed distros | `wsl -l`
+Restart all distros | `wsl --shutdown`
+Stop Ubuntu distro | `wsl --terminate Ubuntu`
+Uninstall Ubuntu distro |  `wls --unregister Ubuntu`
 
-# Restart all distros
-wsl --shutdown
-
-# Stop Ubuntu distro
-wsl --terminate Ubuntu
-
-# Uninstall Ubuntu distro
-wls --unregister Ubuntu
-
-# List available distros for install
-wsl -l -o
-
-# Install ubuntu distro
-wls --install Ubuntu
-```
 ## Resources
 * MFTECmd https://github.com/EricZimmerman/MFTECmd
 * Plaso https://github.com/log2timeline/plaso
