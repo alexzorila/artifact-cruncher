@@ -9,7 +9,7 @@ cd artifact-cruncher2
 chmod +x ./setup.sh
 ./setup.sh
 ```
-For WSL2 usage and Ubuntu install see [Cheat Sheet](https://github.com/alexzorila/artifact-cruncher2/tree/main?tab=readme-ov-file#manage-wsl2-cheat-sheet).
+For WSL2 usage and Ubuntu install see [Cheat Sheet](#wsl-2-cheat-sheet).
 
 ## Usage
 ### Collect
