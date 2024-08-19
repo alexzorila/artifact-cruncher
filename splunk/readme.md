@@ -14,12 +14,16 @@ chmod +x ./setup.sh
 ```
 
 ## Usage
+Copy CSV data to `/artifact-cruncher2/splunk/splunk-data` to be ingested into the local Docker Splunk deployment.
+Access data via the Splung Web GUI.
+
 | Key | Value |
 |---------------|---------|
 Web interface | http://localhost:8000
 User:Pass | admin:Password!
-Data Ingest | /artifact-cruncher2/splunk/splunk-data
 Show data (SPL) | * earliest=0
+
+To reset the environment you can destroy the container using `docker compose down` and re-deploy by running `./setup.sh`.
 
 ## Docker container commands
 | Operation   | Command |
