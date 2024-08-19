@@ -52,9 +52,8 @@ Using Windows `Terminal` run one or more of the following `commands` to manage a
 | Uninstall Ubuntu distro        |  `wls --unregister Ubuntu` |
 
 ## Resources
-* MFTECmd https://github.com/EricZimmerman/MFTECmd
-* Plaso https://github.com/log2timeline/plaso
-* Timesketch https://github.com/google/timesketch
-* Velociraptor https://github.com/Velocidex/velociraptor
-* CyLR https://github.com/orlikoski/CyLR
-* Splunk Free: https://docs.splunk.com/Documentation/Splunk/9.3.0/Admin/MoreaboutSplunkFree
+* https://github.com/alexzorila/artifact-cruncher
+* https://github.com/Velocidex/velociraptor
+* https://docs.docker.com/reference/cli/docker/compose/
+* https://learn.microsoft.com/en-us/windows/wsl/basic-commands
+* https://www.splunk.com/en_us/resources/splunk-quick-reference-guide.html
