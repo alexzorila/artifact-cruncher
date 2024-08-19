@@ -31,7 +31,7 @@ Docs: [artifact-cruncher/parse](parse)
 | Web GUI       | http://localhost:8000 |
 | Web Login     | admin:Password! |
 
-Docs: [artifact-cruncher/splunk](https://github.com/alexzorila/artifact-cruncher2/tree/main/splunk)
+Docs: [artifact-cruncher/splunk](https://github.com/alexzorila/artifact-cruncher2/tree/main/splunk), [Splunk Quick Reference Guide](https://www.splunk.com/en_us/resources/splunk-quick-reference-guide.html)
 
 ## Docker Cheat Sheet
 Using `WSL2` run one or more of the following `commands` to manage a Docker compose instance.
@@ -42,6 +42,8 @@ Using `WSL2` run one or more of the following `commands` to manage a Docker comp
 | Restart		      |	docker compose restart |
 | Execute		      |	docker compose exec |
 | Destroy	      	|	docker compose down |
+
+Docs: [Docker Compose](https://docs.docker.com/reference/cli/docker/compose/)
 
 ## WSL 2 Cheat Sheet
 Using Windows `Terminal` run one or more of the following `commands` to manage an Ubunt guest install.
@@ -54,9 +56,9 @@ Using Windows `Terminal` run one or more of the following `commands` to manage a
 | Stop Ubuntu distr              | `wsl --terminate Ubuntu` |
 | Uninstall Ubuntu distro        |  `wls --unregister Ubuntu` |
 
+Docs: [WSL Basic Commands](https://learn.microsoft.com/en-us/windows/wsl/basic-commands)
+
 ## Resources
 * https://github.com/alexzorila/artifact-cruncher
 * https://github.com/Velocidex/velociraptor
-* https://docs.docker.com/reference/cli/docker/compose/
-* https://learn.microsoft.com/en-us/windows/wsl/basic-commands
-* https://www.splunk.com/en_us/resources/splunk-quick-reference-guide.html
+* https://dfir-kev.medium.com/plaso-super-timelines-in-splunk-a563181a1da5
