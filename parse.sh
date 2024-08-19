@@ -55,17 +55,17 @@ case "$choice" in
         done
 
         # Parse Triage image to Plaso file, excluding MFT
-        docker run -v .:/data log2timeline/plaso \
+        docker run --rm -v .:/data log2timeline/plaso \
                 log2timeline --parsers \!mft \
                 --storage_file /data/$basename.plaso /data/$filename
 
         # Merge MFT bodyfile(s) with Triage image Plaso
-        docker run -v .:/data log2timeline/plaso \
+        docker run --rm -v .:/data log2timeline/plaso \
                 log2timeline -z UTC --parsers mactime \
                 --storage_file /data/$basename.plaso /data/MFT
 
         # Convert Plaso to CSV
-        docker run -v .:/data log2timeline/plaso \
+        docker run --rm -v .:/data log2timeline/plaso \
                 psort -w /data/$basename.csv /data/$basename.plaso
 
         # Cleanup
