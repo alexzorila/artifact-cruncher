@@ -19,10 +19,10 @@ For WSL2 usage and Ubuntu install see [Cheat Sheet](https://github.com/alexzoril
 From the `Windows File System` navigate to the zip file directory. Open the `WSL2` distribution in the `current directory`.
 
 ### Parse
-Expect 15 to 45 minutes parsing time, depending on the collection file size.
 ```
 parse -f DC_RLAB_local.zip
 ```
+> Expect 15 to 45 minutes parsing time, depending on the collection file size.
 
 ### Output
 Plaso and CSV flat files will be created in the same directory tree as the zip file.
