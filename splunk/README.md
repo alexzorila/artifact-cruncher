@@ -1,4 +1,4 @@
-# Artifact Cruncher Splunk Frontend
+# Artifact Cruncher Frontend (Splunk)
 Docker based Splunk deployment ready to ingest CSV data. Intended to be used as a local application to proces Plaso SuperTimeline output. 
 Selected for forensic investigations leveraging the SPL query language flexibility, visualization capability and dashboard creation.
 
