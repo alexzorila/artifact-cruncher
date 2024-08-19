@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Elevate session
+if [ $EUID != 0 ]; then
+    sudo "$0" "$@"
+    exit $?
+fi
+
 # Install Docker if missing
 docker > /dev/null 2>&1 || curl -fsSL https://get.docker.com | sh
 service docker start
