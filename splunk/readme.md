@@ -23,7 +23,7 @@ Access data via the Splung Web GUI.
 |---------------|---------|
 Web interface | http://localhost:8000
 User:Pass | admin:Password!
-Show data (SPL) | * earliest=0
+Show data (SPL) | earliest=0
 
 To reset the environment you can destroy the container using `docker compose down` and re-deploy by running `./setup.sh`.
 
