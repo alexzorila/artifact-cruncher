@@ -7,7 +7,7 @@ From an `Ubuntu` guest inside `WSL2` on Windows 11 run the following code snippe
 git clone https://github.com/alexzorila/artifact-cruncher2.git
 cd artifact-cruncher2
 chmod +x ./setup.sh
-./setup.sh
+./setup.sh parse
 ```
 For WSL2 usage and Ubuntu install see [Cheat Sheet](#wsl-2-cheat-sheet).
 
