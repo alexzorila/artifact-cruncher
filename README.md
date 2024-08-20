@@ -1,5 +1,7 @@
 # Artifact Cruncher
-Crunch artifacts found in Forensic Disk Triage Collections. Optionally ingest into a local Splunk instance to enable searching and reporting. Tested on: `Windows 11`, `WSL2`, `Ubuntu 22.04 guest`, `Docker`.
+Crunch artifacts found in Forensic Disk Triage Collections. Optionally ingest into a local Splunk instance to enable searching and reporting. 
+* Tested on: `Windows 11`, `WSL2`, `Ubuntu 22.04 guest`, `Docker`.
+* Tools used: `Plaso`, `MFTECmd`, `Velociraptor`, `Splunk`.
 
 ## Quick Install
 From an `Ubuntu` guest inside `WSL2` on Windows 11 run the following code snippet as `root`.
@@ -58,4 +60,8 @@ Using Windows `Terminal` run one or more of the following `commands` to manage a
 
 Docs: [WSL Basic Commands](https://learn.microsoft.com/en-us/windows/wsl/basic-commands)
 
+## Previous Version
+* https://github.com/alexzorila/artifact-cruncher
+* VM built using Vagrant and VirtualBox
+* Parse and ingest logs from forensic triage images collected with CyLR
 
