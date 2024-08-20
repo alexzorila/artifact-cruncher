@@ -42,7 +42,7 @@ docker compose exec -u root splunk bash
 ```
 
 ## References
-- https://github.com/alexzorila/artifact-cruncher
+- https://github.com/alexzorila/artifact-cruncher-vagrant
 - https://docs.splunk.com/Documentation/Splunk/9.3.0/Installation/DeployandrunSplunkEnterpriseinsideDockercontainers
 - https://chatgpt.com/share/6402fae5-e8f9-45bc-8a67-6b109b6bbf71
 - https://dfir-kev.medium.com/plaso-super-timelines-in-splunk-a563181a1da5
