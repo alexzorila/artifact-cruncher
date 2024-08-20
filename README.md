@@ -36,7 +36,7 @@ Examples:
 ```
 
 ## Usage
-<! --
+<!---
 ### Collect
 ```
 PS> .\velociraptor_sans_triage.exe
