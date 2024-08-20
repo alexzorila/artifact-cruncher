@@ -1,5 +1,5 @@
 # Artifact Cruncher
-Parse Velociraptor triage collection to supertimeline on Windows. Environment build using WLS2 and Docker. Optional ingest into local Splunk container. Tested on: Windows 11, WSL2, Ubuntu 22.04 guest, Docker.  
+Parse Velociraptor triage collection to Supertimeline on Windows. Environment build using WLS2 and Docker. Optional ingest into local Splunk container. Tested on: Windows 11, WSL2, Ubuntu 22.04 guest, Docker.  
 
 ## Installation
 From an `Ubuntu` guest inside `WSL2` on Windows 11 run one of the following code snippets as `root`.  
@@ -65,9 +65,9 @@ Using `WSL2` run one or more of the following `commands` to manage a Docker comp
 |-----------------|---------|
 | Show running    |	docker compose ps |
 | Stop	     	  |	docker compose stop |
-| Restart	      |	docker compose restart |
+| Restart	  |	docker compose restart |
 | Execute         |	docker compose exec |
-| Destroy  		  |	docker compose down |
+| Destroy         |	docker compose down |
 
 Docs: [Docker Compose](https://docs.docker.com/reference/cli/docker/compose/)
 
