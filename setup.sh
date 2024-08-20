@@ -7,7 +7,7 @@ valid_arg=false
 for arg in "$@"; do
     case "$arg" in
         parse) echo -e "\nExecuting ./parse/setup.sh..."; cd parse && ./setup.sh; valid_arg=true ;;
-		splunk) echo -e "\nExecuting ./splunk/setup.sh..."; cd splunk && setup.sh; valid_arg=true ;;
+	splunk) echo -e "\nExecuting ./splunk/setup.sh..."; cd splunk && ./setup.sh; valid_arg=true ;;
     esac
 done
 
