@@ -1,10 +1,5 @@
 # Artifact Cruncher
-Crunch artifacts found in Forensic Disk Triage Collections. Optionally ingest into a local Splunk instance to enable searching and reporting. Tested on: `Windows 11`, `WSL2`, `Ubuntu 22.04 guest`, `Docker`. 
-
-## Features
-- Data collection: `Velociraptor`
-- Processing: `Plaso`, `MFTECmd`
-- Analysis: `Splunk`
+Parse forensic disk triage collection to supertimeline on Windows, using Plaso and MFTECmd. Maintains compatibility with Windows filesystem. Optional output ingest into local Docker Splunk instance. Tested on: `Windows 11`, `WSL2`, `Ubuntu 22.04 guest`, `Docker`
 
 ## Quick Install
 From an `Ubuntu` guest inside `WSL2` on Windows 11 run the following code snippet as `root`.
@@ -64,7 +59,6 @@ Using Windows `Terminal` run one or more of the following `commands` to manage a
 Docs: [WSL Basic Commands](https://learn.microsoft.com/en-us/windows/wsl/basic-commands)
 
 ## Previous Version
-* https://github.com/alexzorila/artifact-cruncher
-* VM built using Vagrant and VirtualBox
-* Parse and ingest logs from forensic triage images collected with CyLR
-
+**Date**: `Jan 10, 2023`  
+**About**: VM built using Vagrant and VirtualBox. Parse forensic triage images collected with CyLR, using MFTECmd and CDQR. Ingest into Splunk.  
+**Reference**: https://github.com/alexzorila/artifact-cruncher.
