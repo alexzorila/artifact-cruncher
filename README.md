@@ -87,4 +87,4 @@ Docs: [WSL Basic Commands](https://learn.microsoft.com/en-us/windows/wsl/basic-c
 ## Previous Version
 **Date**: `Jan 10, 2023`  
 **About**: VM built using Vagrant and VirtualBox. Parse forensic triage images collected with CyLR, using MFTECmd and CDQR. Ingest into Splunk.  
-**Reference**: https://github.com/alexzorila/artifact-cruncher
+**Reference**: https://github.com/alexzorila/artifact-cruncher-vagrant
