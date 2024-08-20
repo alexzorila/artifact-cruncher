@@ -7,8 +7,8 @@ Parse disk triage collection to supertimeline flat file from Windows Terminal us
 ## Quick Install
 From an `Ubuntu` guest inside `WSL2` on Windows 11 run the following code snippet as `root`.
 ```
-git clone https://github.com/alexzorila/artifact-cruncher2.git
-cd artifact-cruncher2/parse
+git clone https://github.com/alexzorila/artifact-cruncher.git
+cd artifact-cruncher/parse
 chmod +x ./setup.sh
 ./setup.sh
 ```
