@@ -1,10 +1,9 @@
 # Artifact Cruncher
-Windows forensic triage image parser. Process Velociraptor offline collection to supertimeline on Windows workstation.
-* ZIP archive to Plaso and CSV flat files.
-* Uses WSL, Docker, Plaso and MFTECmd.
-* Maintains compatibility with Windows filesystem.
-* Optional output ingest into local Docker Splunk instance.
-* Tested on: `Windows 11`, `WSL2`, `Ubuntu 22.04 guest`, `Docker`
+Parse forensic disk triage collection to supertimeline on Windows. 
+Uses WSL2, Docker, Plaso and MFTECmd. 
+Maintains compatibility with Windows filesystem. 
+Optional output ingest into local Docker Splunk instance. 
+Tested on: Windows 11, WSL2, Ubuntu 22.04 guest, Docker
 
 ## Installation
 From an `Ubuntu` guest inside `WSL2` on Windows 11 run one of the following code snippets as `root`.  
