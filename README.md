@@ -1,7 +1,7 @@
 # Artifact Cruncher
 Parse Velociraptor triage collection to Supertimeline on Windows. Environment built using WLS2 and Docker. Maintains compatibility with Windows filesystem. Optional ingest into local Splunk container. 
 
-Tested with: `Windows 11`, `WSL2`, `Ubuntu 22.04 guest`, `Docker`, `Plaso`, `MFTECmd`
+Tested with: `Windows 11`, `WSL2`, `Ubuntu 22.04 guest`, `Docker`, `Plaso`, `MFTECmd`, `Splunk 9.3`
 
 ## Installation
 From an `Ubuntu` guest inside `WSL2` on Windows 11 run one of the following code snippets as `root`.  
