@@ -2,21 +2,21 @@
 Docker based Splunk deployment ready to ingest CSV data. Intended to be used as a local application to proces Plaso SuperTimeline output. 
 Selected for forensic investigations leveraging the SPL query language flexibility, visualization capability and dashboard creation.
 
-* Data ingest directory: `/artifact-cruncher2/splunk/splunk-data`
+* Data ingest directory: `/artifact-cruncher/splunk/splunk-data`
 * Tested on: `Windows 11, WSL2, Ubuntu 22.04 guest`
 
 ## Quick Install
 From an `Ubuntu` guest inside `WSL2` on Windows 11 run the following code snippet as `root`.
 ```
-git clone https://github.com/alexzorila/artifact-cruncher2.git
-cd artifact-cruncher2/splunk
+git clone https://github.com/alexzorila/artifact-cruncher.git
+cd artifact-cruncher/splunk
 chmod +x ./setup.sh
 ./setup.sh
 ```
 For WSL2 usage and Ubuntu install see [Cheat Sheet](../README.md#wsl-2-cheat-sheet).
 
 ## Usage
-Copy CSV data to `/artifact-cruncher2/splunk/splunk-data` to be ingested into the local Docker Splunk deployment.
+Copy CSV data to `/artifact-cruncher/splunk/splunk-data` to be ingested into the local Docker Splunk deployment.
 Access data via the Splung Web GUI.
 
 | Description | Details |
