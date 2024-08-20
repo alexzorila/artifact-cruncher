@@ -8,7 +8,7 @@ From an `Ubuntu` guest inside `WSL2` on Windows 11 run one of the following code
 For WSL2 usage and Ubuntu installation see [WSL Cheat Sheet](#wsl-2-cheat-sheet).
 
 ### Quick Install
-Install `parser` module only. Default option.
+Install `parse` module only. Default option.
 ```
 git clone https://github.com/alexzorila/artifact-cruncher.git
 cd artifact-cruncher
@@ -16,7 +16,7 @@ chmod +x ./setup.sh
 ./setup.sh parse
 ```
 ### Full Install
-Install both `parser` and `splunk` modules.
+Install both `parse` and `splunk` modules.
 ```
 git clone https://github.com/alexzorila/artifact-cruncher.git
 cd artifact-cruncher
@@ -55,9 +55,9 @@ Docs: [artifact-cruncher/parse](parse)
 ### Analyse
 | Splunk        | Details |
 |---------------|---------|
-| CSV Ingest    | Copy CSV data to ./artifact-cruncher/splunk/splunk-data |
+| CSV Ingest    | Copy CSV data to `./artifact-cruncher/splunk/splunk-data` |
 | Web GUI       | http://localhost:8000 |
-| Web Login     | admin:Password! |
+| Web Login     | `admin:Password!` |
 
 Docs: [artifact-cruncher/splunk](https://github.com/alexzorila/artifact-cruncher/tree/main/splunk), [Splunk Quick Reference Guide](https://www.splunk.com/en_us/resources/splunk-quick-reference-guide.html)
 
@@ -65,11 +65,11 @@ Docs: [artifact-cruncher/splunk](https://github.com/alexzorila/artifact-cruncher
 Using `WSL2` run one or more of the following `commands` to manage a Docker compose instance.
 | Operation       | Command |
 |-----------------|---------|
-| Show running    |	docker compose ps |
-| Stop	     	  |	docker compose stop |
-| Restart	  |	docker compose restart |
-| Execute         |	docker compose exec |
-| Destroy         |	docker compose down |
+| Show running    |	`docker compose ps` |
+| Stop	     	  |	`docker compose stop` |
+| Restart	  |	`docker compose restart` |
+| Execute         |	`docker compose exec` |
+| Destroy         |	`docker compose down` |
 
 Docs: [Docker Compose](https://docs.docker.com/reference/cli/docker/compose/)
 
