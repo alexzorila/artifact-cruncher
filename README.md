@@ -8,16 +8,16 @@ For WSL2 usage and Ubuntu installation see [WSL Cheat Sheet](#wsl-2-cheat-sheet)
 ### Quick Install
 Install `parser` module only. Default option.
 ```
-git clone https://github.com/alexzorila/artifact-cruncher2.git
-cd artifact-cruncher2
+git clone https://github.com/alexzorila/artifact-cruncher.git
+cd artifact-cruncher
 chmod +x ./setup.sh
 ./setup.sh parse
 ```
 ### Full Install
 Install both `parser` and `splunk` modules.
 ```
-git clone https://github.com/alexzorila/artifact-cruncher2.git
-cd artifact-cruncher2
+git clone https://github.com/alexzorila/artifact-cruncher.git
+cd artifact-cruncher
 chmod +x ./setup.sh
 ./setup.sh parse splunk
 ```
@@ -57,7 +57,7 @@ Docs: [artifact-cruncher/parse](parse)
 | Web GUI       | http://localhost:8000 |
 | Web Login     | admin:Password! |
 
-Docs: [artifact-cruncher/splunk](https://github.com/alexzorila/artifact-cruncher2/tree/main/splunk), [Splunk Quick Reference Guide](https://www.splunk.com/en_us/resources/splunk-quick-reference-guide.html)
+Docs: [artifact-cruncher/splunk](https://github.com/alexzorila/artifact-cruncher/tree/main/splunk), [Splunk Quick Reference Guide](https://www.splunk.com/en_us/resources/splunk-quick-reference-guide.html)
 
 ## Docker Cheat Sheet
 Using `WSL2` run one or more of the following `commands` to manage a Docker compose instance.
