@@ -1,15 +1,39 @@
 # Artifact Cruncher
 Parse forensic disk triage collection to supertimeline on Windows, using Plaso and MFTECmd. Maintains compatibility with Windows filesystem. Optional output ingest into local Docker Splunk instance. Tested on: `Windows 11`, `WSL2`, `Ubuntu 22.04 guest`, `Docker`
 
-## Quick Install
-From an `Ubuntu` guest inside `WSL2` on Windows 11 run the following code snippet as `root`.
+## Installation
+From an `Ubuntu` guest inside `WSL2` on Windows 11 run one of the following code snippets as `root`.  
+For WSL2 usage and Ubuntu installation see [WSL Cheat Sheet](#wsl-2-cheat-sheet).
+
+### Quick Install
+Install `parser` module only. Default option.
 ```
 git clone https://github.com/alexzorila/artifact-cruncher2.git
 cd artifact-cruncher2
 chmod +x ./setup.sh
 ./setup.sh parse
 ```
-For WSL2 usage and Ubuntu install see [Cheat Sheet](#wsl-2-cheat-sheet).
+### Full Install
+Install both `parser` and `splunk` modules.
+```
+git clone https://github.com/alexzorila/artifact-cruncher2.git
+cd artifact-cruncher2
+chmod +x ./setup.sh
+./setup.sh parse splunk
+```
+
+### Show Help
+```
+./setup.sh
+
+Error   : No valid script arguments passed! Specify one or both to install corresponding module.
+Options : 'parse', 'splunk'
+
+Examples:
+        - Install both   : ./setup.sh parse splunk
+        - Install parser : ./setup.sh parse
+        - Install splunk : ./setup.sh splunk
+```
 
 ## Usage
 ### Collect
