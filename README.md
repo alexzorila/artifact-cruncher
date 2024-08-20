@@ -1,5 +1,5 @@
 # Artifact Cruncher
-Parse forensic triage collection to `supertimeline` on Windows. Maintains compatibility with host filesystem. Optional output ingest into local Docker Splunk instance. Tested on: Windows 11, WSL2, Ubuntu 22.04 guest, Docker.
+Parse Velociraptor triage collection to supertimeline on Windows. Environment build using WLS2 and Docker. Optional ingest into local Splunk container. Tested on: Windows 11, WSL2, Ubuntu 22.04 guest, Docker.  
 
 ## Installation
 From an `Ubuntu` guest inside `WSL2` on Windows 11 run one of the following code snippets as `root`.  
