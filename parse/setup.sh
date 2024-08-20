@@ -17,7 +17,7 @@ git clone https://github.com/EricZimmerman/MFTECmd.git /opt/MFTECmd
 dotnet publish /opt/MFTECmd/ -r ubuntu.22.04-x64 --self-contained --framework net6.0
 cp -s /opt/MFTECmd/MFTECmd/bin/Debug/net6.0/ubuntu.22.04-x64/MFTECmd /usr/local/bin/
 
-# Install Docker
+# Install Docker if missing
 echo -e "\n\n[$(date '+%d/%m/%Y %H:%M:%S')]: Installing Docker."
 docker > /dev/null 2>&1 || curl -fsSL https://get.docker.com | sh
 
