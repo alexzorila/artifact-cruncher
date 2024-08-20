@@ -36,11 +36,13 @@ Examples:
 ```
 
 ## Usage
+<! --
 ### Collect
 ```
 PS> .\velociraptor_sans_triage.exe
 ```
 Docs: [Velociraptor](https://docs.velociraptor.app/docs/offline_triage/#offline-collections), [KAPE](https://ericzimmerman.github.io/KapeDocs/#!Pages%5C5.-gkape.md), [CyLR](https://github.com/orlikoski/CyLR?tab=readme-ov-file#examples)
+-->
 
 ### Parse
 ```
