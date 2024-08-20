@@ -53,7 +53,7 @@ Docs: [artifact-cruncher/parse](parse)
 ### Analyse
 | Splunk        | Details |
 |---------------|---------|
-| CSV Ingest    | Copy CSV data to /artifact-cruncher2/splunk/splunk-data |
+| CSV Ingest    | Copy CSV data to ./artifact-cruncher/splunk/splunk-data |
 | Web GUI       | http://localhost:8000 |
 | Web Login     | admin:Password! |
 
@@ -64,10 +64,10 @@ Using `WSL2` run one or more of the following `commands` to manage a Docker comp
 | Operation       | Command |
 |-----------------|---------|
 | Show running    |	docker compose ps |
-| Stop			      |	docker compose stop |
-| Restart		      |	docker compose restart |
-| Execute		      |	docker compose exec |
-| Destroy	      	|	docker compose down |
+| Stop	     	  |	docker compose stop |
+| Restart	      |	docker compose restart |
+| Execute         |	docker compose exec |
+| Destroy  		  |	docker compose down |
 
 Docs: [Docker Compose](https://docs.docker.com/reference/cli/docker/compose/)
 
