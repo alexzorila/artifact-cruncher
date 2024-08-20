@@ -1,7 +1,10 @@
 # Artifact Cruncher
-Crunch artifacts found in Forensic Disk Triage Collections. Optionally ingest into a local Splunk instance to enable searching and reporting. 
-* Tested on: `Windows 11`, `WSL2`, `Ubuntu 22.04 guest`, `Docker`.
-* Tools used: `Plaso`, `MFTECmd`, `Velociraptor`, `Splunk`.
+Crunch artifacts found in Forensic Disk Triage Collections. Optionally ingest into a local Splunk instance to enable searching and reporting. Tested on: `Windows 11`, `WSL2`, `Ubuntu 22.04 guest`, `Docker`. 
+
+## Features
+- Data collection: `Velociraptor`
+- Processing: `Plaso`, `MFTECmd`
+- Analysis: `Splunk`
 
 ## Quick Install
 From an `Ubuntu` guest inside `WSL2` on Windows 11 run the following code snippet as `root`.
