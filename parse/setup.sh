@@ -15,7 +15,7 @@ apt install dotnet6 unzip sleuthkit -y
 echo -e "\n\n[$(date '+%d/%m/%Y %H:%M:%S')]: Installing MFTECmd."
 git clone https://github.com/EricZimmerman/MFTECmd.git /opt/MFTECmd
 dotnet publish /opt/MFTECmd/ -r ubuntu.22.04-x64 --self-contained --framework net6.0
-cp -s /opt/MFTECmd/MFTECmd/bin/Debug/net6.0/ubuntu.22.04-x64/MFTECmd /usr/local/bin/
+cp -f -s /opt/MFTECmd/MFTECmd/bin/Debug/net6.0/ubuntu.22.04-x64/MFTECmd /usr/local/bin/
 
 # Install Docker if missing
 echo -e "\n\n[$(date '+%d/%m/%Y %H:%M:%S')]: Installing Docker."
@@ -29,7 +29,7 @@ docker pull log2timeline/plaso
 echo -e "\n\n[$(date '+%d/%m/%Y %H:%M:%S')]: Installing Parsing Script."
 mkdir /opt/parse
 chmod +x ./parse.sh
-cp ./parse.sh /opt/parse/parse
+cp -f ./parse.sh /opt/parse/parse
 cp -f -s /opt/parse/parse /usr/local/bin/
 
 # Cleanup
