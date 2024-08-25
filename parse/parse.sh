@@ -52,9 +52,9 @@ case "$choice" in
         # Get MFT file name(s)
         mftfiles=$(unzip -l $filename | grep -i mft | awk '{print $4}')
         
-		# For each MFT file
-		for mft in $mftfiles; do
-        	# Get drive letter
+        # For each MFT file
+        for mft in $mftfiles; do
+            # Get drive letter
             drive=$(echo $mft | grep -oP '(?<=%5C%5C.%5C).*(?=%3A/\$MFT)')
             # Extract MFT
             unzip -o -j $filename $mft -d $workdir
@@ -65,7 +65,7 @@ case "$choice" in
             mactime -b $workdir/MFT/$drive.mft.body -d -y -z UTC > $workdir/MFT/$drive.MftTimeline.csv
         done
         
-		# Merge MFT CSV file(s) Timeline
+        # Merge MFT CSV file(s) Timeline
         awk 'NR == 1 || FNR > 1' $workdir/MFT/*.csv > $workdir/MftTimeline.csv
 
 
