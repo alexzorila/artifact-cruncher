@@ -30,7 +30,7 @@ echo -e "\n\n[$(date '+%d/%m/%Y %H:%M:%S')]: Installing Parsing Script."
 mkdir /opt/parse
 chmod +x ./parse.sh
 cp ./parse.sh /opt/parse/parse
-cp -s /opt/parse/parse /usr/local/bin/
+cp -f -s /opt/parse/parse /usr/local/bin/
 
 # Cleanup
 rm -rf get-docker.sh
