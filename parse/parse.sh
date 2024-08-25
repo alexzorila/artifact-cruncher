@@ -8,7 +8,7 @@ fi
 
 # Check if script has at least one argument
 if [[ $# -lt 2 ]] ; then
-    echo -e "\nNo parameter passed!\n\tPlease use -f or --filename followed by a full path.\n\tEg: parse -f DESKTOP-123.zip\n"
+    echo -e "\nNo parameter passed!\n\tPlease use -f or --filename followed by a full path.\n\tEg: parse.sh -f DESKTOP-123.zip\n"
     exit 1
 fi
 
@@ -17,7 +17,7 @@ while [[ $# -gt 0 ]]
 do case $1 in
     -f|--filename) filename="$2"
     shift;;
-    *) echo -e "\nUnknown parameter passed: $1\n\tPlease use -f or --filename followed by a full path.\n\tEg: parse -f DESKTOP-123.zip\n"
+    *) echo -e "\nUnknown parameter passed: $1\n\tPlease use -f or --filename followed by a full path.\n\tEg: parse.sh -f DESKTOP-123.zip\n"
     exit 1;;
 esac
 shift
@@ -35,41 +35,60 @@ fi
 read -p "Continue (y/y)? " choice
 case "$choice" in
   y|Y)
-        # File naming and working directory setup
+        # Set unique values for work directory naming
         basename=$(basename $filename .zip)
         datetime=$(date -d "today" +"%Y%m%d%H%M")
-        mftfiles=$(unzip -l $filename | grep -i mft | awk '{print $4}')
         workdir="/tmp/$datetime"
-        cleandir=$PWD/$datetime
-        mkdir $workdir $cleandir $workdir/MFT
+        hostdir=$PWD/$datetime
+        mkdir $workdir $hostdir $workdir/MFT
+
+        # Switch context to WSL file system
         cp $filename $workdir
         cd $workdir
 
-        ### Parse Collection to Plaso ###
-        # Extract each MFT and parse to bodyfile
-        for mft in $mftfiles; do
-	        drive=$(echo $mft | grep -oP '(?<=%5C%5C.%5C).*(?=%3A/\$MFT)')
-	        unzip -o -j $filename $mft -d $workdir          
+
+        ### Create Timeline ###
+
+        # Get MFT file name(s)
+        mftfiles=$(unzip -l $filename | grep -i mft | awk '{print $4}')
+        
+		# For each MFT file
+		for mft in $mftfiles; do
+        	# Get drive letter
+            drive=$(echo $mft | grep -oP '(?<=%5C%5C.%5C).*(?=%3A/\$MFT)')
+            # Extract MFT
+            unzip -o -j $filename $mft -d $workdir
+            # Parse MFT to body file
             MFTECmd -f $workdir/\$MFT --body $workdir/MFT --bodyf $drive.mft.body --bdl $drive
             rm -rf \$MFT
+            # Parse body file to CSV Timeline
+            mactime -b $workdir/MFT/$drive.mft.body -d -y -z UTC > $workdir/MFT/$drive.MftTimeline.csv
         done
+        
+		# Merge MFT CSV file(s) Timeline
+        awk 'NR == 1 || FNR > 1' $workdir/MFT/*.csv > $workdir/MftTimeline.csv
+
+
+        ### Create Supertimeline ###
 
         # Parse Triage image to Plaso file, excluding MFT
-        docker run --rm -v .:/data log2timeline/plaso \
-                log2timeline --parsers \!mft \
-                --storage_file /data/$basename.plaso /data/$filename
+        # docker run --rm -v .:/data log2timeline/plaso \
+        #        log2timeline --parsers \!mft \
+        #        --storage_file /data/$basename.plaso /data/$filename
 
+        ### Below section commented for parsing speed ###
         # Merge MFT bodyfile(s) with Triage image Plaso
-        docker run --rm -v .:/data log2timeline/plaso \
-                log2timeline -z UTC --parsers mactime \
-                --storage_file /data/$basename.plaso /data/MFT
+        # docker run --rm -v .:/data log2timeline/plaso \
+        #        log2timeline -z UTC --parsers mactime \
+        #        --storage_file /data/$basename.plaso /data/MFT
 
         # Convert Plaso to CSV
-        docker run --rm -v .:/data log2timeline/plaso \
-                psort -w /data/$basename.csv /data/$basename.plaso
+        # docker run --rm -v .:/data log2timeline/plaso \
+        #        psort -w /data/$basename.csv /data/$basename.plaso
 
         # Cleanup
-        mv -f $workdir/$basename.plaso $workdir/$basename.csv "$cleandir" && rm -rf $workdir
+        mv -f $workdir/*.csv "$hostdir"
+        # rm -rf $workdir
         exit 0
   ;;
   n|N) echo -e "No selected. Exiting.\n"
