@@ -8,7 +8,7 @@ fi
 
 # Check if script has at least one argument
 if [[ $# -lt 2 ]] ; then
-    echo -e "\nNo parameter passed!\n\tPlease use -f or --filename followed by a full path.\n\tEg: parse.sh -f DESKTOP-123.zip\n"
+    echo -e "\nNo parameter passed!\n\tPlease use -f or --filename followed by a full path.\n\tEg: parse -f DESKTOP-123.zip\n"
     exit 1
 fi
 
@@ -17,7 +17,7 @@ while [[ $# -gt 0 ]]
 do case $1 in
     -f|--filename) filename="$2"
     shift;;
-    *) echo -e "\nUnknown parameter passed: $1\n\tPlease use -f or --filename followed by a full path.\n\tEg: parse.sh -f DESKTOP-123.zip\n"
+    *) echo -e "\nUnknown parameter passed: $1\n\tPlease use -f or --filename followed by a full path.\n\tEg: parse -f DESKTOP-123.zip\n"
     exit 1;;
 esac
 shift
