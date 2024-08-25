@@ -23,7 +23,7 @@ for arg in "$@"; do
     esac
 done
 
-# Notify the user if no valid keyword was provided
+# Help page. Notify user if no valid argument provided
 if [ "$valid_arg" = false ]; then
     echo -e "\nError   : No valid script arguments passed! Specify one or both to install corresponding module."
 	echo -e "Options : 'parse', 'splunk'"
@@ -33,4 +33,6 @@ if [ "$valid_arg" = false ]; then
 	echo -e "\t- Install splunk : ./setup.sh splunk\n"
     exit 1
 fi
-echo -e "\nSetup Done!\n"
+
+# Notify user. Script completed execution
+echo -e "\n[$(date '+%d/%m/%Y %H:%M:%S')]: Done!\n"
