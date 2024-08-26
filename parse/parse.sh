@@ -36,7 +36,6 @@ read -p "Continue (y/y)? " choice
 case "$choice" in
   y|Y)
         # Set unique values for work directory naming
-        basename=$(basename $filename .zip)
         datetime=$(date -d "today" +"%Y%m%d%H%M")
         workdir="/tmp/$datetime"
         hostdir=$PWD/$datetime
@@ -81,7 +80,7 @@ case "$choice" in
         #### Create Supertimeline ####
         
         # Create files work dir
-        $workdir/files
+        mkdir $workdir/files
         
         # Expand triage collection
         unzip $filename -d expand
