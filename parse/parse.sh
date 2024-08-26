@@ -40,55 +40,64 @@ case "$choice" in
         datetime=$(date -d "today" +"%Y%m%d%H%M")
         workdir="/tmp/$datetime"
         hostdir=$PWD/$datetime
-        mkdir $workdir $hostdir $workdir/MFT
-
+        
+        # Create work directories
+        mkdir $workdir $hostdir
+        
         # Switch context to WSL file system
         cp $filename $workdir
         cd $workdir
 
-
-        ### Create Timeline ###
-
-        # Get MFT file name(s)
+        
+        #### Create Timeline ####
+        
+        # Create MFT work dir
+        mkdir $workdir/mft
+        
+        # Get list of MFT files
         mftfiles=$(unzip -l $filename | grep -i mft | awk '{print $4}')
         
-        # For each MFT file
+        # Parse each MFT file in the list to CSV Timeline
         for mft in $mftfiles; do
             # Get drive letter
             drive=$(echo $mft | grep -oP '(?<=%5C%5C.%5C).*(?=%3A/\$MFT)')
             # Extract MFT
-            unzip -o -j $filename $mft -d $workdir
+            unzip -o -j $filename $mft -d .
             # Parse MFT to body file
-            MFTECmd -f $workdir/\$MFT --body $workdir/MFT --bodyf $drive.mft.body --bdl $drive
+            MFTECmd -f \$MFT --body mft --bodyf $drive.mft.body --bdl $drive
             rm -rf \$MFT
             # Parse body file to CSV Timeline
-            mactime -b $workdir/MFT/$drive.mft.body -d -y -z UTC > $workdir/MFT/$drive.MftTimeline.csv
+            mactime -b mft/$drive.mft.body -d -y -z UTC > mft/$drive.MftTimeline.csv
         done
         
-        # Merge MFT CSV file(s) Timeline
-        awk 'NR == 1 || FNR > 1' $workdir/MFT/*.csv > $workdir/MftTimeline.csv
+        # Merge CSV Timeline
+        awk 'NR == 1 || FNR > 1' MFT/*.csv > MftTimeline.csv
+        
+        # Cleanup
+        mv -f MftTimeline.csv "$hostdir"
+        rm -rf mft
 
 
-        ### Create Supertimeline ###
-
-        # Parse Triage image to Plaso file, excluding MFT
-        # docker run --rm -v .:/data log2timeline/plaso \
-        #        log2timeline --parsers \!mft \
-        #        --storage_file /data/$basename.plaso /data/$filename
-
-        ### Below section commented for parsing speed ###
-        # Merge MFT bodyfile(s) with Triage image Plaso
-        # docker run --rm -v .:/data log2timeline/plaso \
-        #        log2timeline -z UTC --parsers mactime \
-        #        --storage_file /data/$basename.plaso /data/MFT
-
-        # Convert Plaso to CSV
-        # docker run --rm -v .:/data log2timeline/plaso \
-        #        psort -w /data/$basename.csv /data/$basename.plaso
+        #### Create Supertimeline ####
+        
+        # Create files work dir
+        $workdir/files
+        
+        # Expand triage collection
+        unzip $filename -d expand
+        
+        # Cleanup 
+        mv ./expand/uploads/* ./files
+        rm -rf expand $filename
+        
+        # Parse triage collection to CSV Supertimeline, excluding MFT
+        docker run --rm -v .:/data log2timeline/plaso \
+            psteal --parsers \!mft --hashers none --archives none \
+            --source /data/files -w /data/Supertimeline.csv
 
         # Cleanup
-        mv -f $workdir/*.csv "$hostdir"
-        # rm -rf $workdir
+        mv -f Supertimeline.csv "$hostdir"
+        rm -rf $workdir
         exit 0
   ;;
   n|N) echo -e "No selected. Exiting.\n"
