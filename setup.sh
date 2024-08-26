@@ -14,11 +14,11 @@ for arg in "$@"; do
     case "$arg" in
         parse) 	
 	        echo -e "\nExecuting ./parse/setup.sh..."
-		cd parse; ./setup.sh; cd ..; valid_arg=true 
+		cd parse; chmod +x ./setup.sh; ./setup.sh; cd ..; valid_arg=true 
 		;;
 	splunk) 
 		echo -e "\nExecuting ./splunk/setup.sh..."
-		cd splunk; ./setup.sh; cd ..; valid_arg=true 
+		cd splunk; chmod +x ./setup.sh; ./setup.sh; cd ..; valid_arg=true 
 		;;
     esac
 done
