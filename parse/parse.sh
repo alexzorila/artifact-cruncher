@@ -35,6 +35,9 @@ fi
 read -p "Continue (y/y)? " choice
 case "$choice" in
   y|Y)
+        # Notify user
+        echo -e "\nProcessing File ...\n"
+
         # Set up work directory
         hostname=$(echo $filename | grep -oP '(?<=Collection-).*(?=-\d{4}-\d{2}-\d{2}T\d{2}_\d{2}_\d{2}Z)')
         datetime=$(date -d "today" +"%Y%m%d%H%M")
@@ -43,15 +46,15 @@ case "$choice" in
         mkdir -p $workdir $hostdir
         cp $filename $workdir
         cd $workdir
-        
+
         ########################## Create Timeline ############################
-        
+
         # Create MFT timeline work directory
         mkdir mft
-        
+
         # Get MFT file names from collection
-        mftfiles=$(unzip -l $filename | grep -i mft | awk '{print $4}')
-        
+        mftfiles=$(unzip -l $filename | grep \$MFT | awk '{print $4}')
+
         # Parse each MFT file in the list to CSV Timeline
         for mft in $mftfiles; do
             # Get drive letter
@@ -62,31 +65,41 @@ case "$choice" in
             MFTECmd -f \$MFT --body mft --bodyf $drive.mft.body --bdl $drive
             rm -rf \$MFT
             # Parse body file to CSV Timeline
+            echo -e "\nParsing MFT to Timeline ..."
             mactime -b mft/$drive.mft.body -d -y -z UTC > mft/$drive.MftTimeline.csv
         done
-        
+
         # Merge CSV Timeline
-        awk 'NR == 1 || FNR > 1' mft/*.csv > MftTimeline.csv  
-        
+        awk 'NR == 1 || FNR > 1' mft/*.csv > MftTimeline.csv
+
         # Move CSV to host
         mv -f MftTimeline.csv "$hostdir" && rm -rf mft
+
+        # Notify user
+        echo -e "\nDone!\n"
 
 
         ######################### Create Supertimeline ########################
 
         # Create Plaso data source directory
         mkdir files
-        
+
         # Expand triage collection and remove extra files
         unzip $filename -d exp && mv ./exp/uploads/* ./files && rm -rf exp $filename
-        
+
         # Parse triage collection to CSV Supertimeline, excluding MFT
         docker run --rm -v .:/data log2timeline/plaso \
-            psteal --parsers \!mft --hashers none --archives none \
+            psteal --parsers \!mft,\!onedrive_log --hashers none --archives none \
                    --source /data/files -w /data/Supertimeline.csv
-            
+
         # Move CSV to host
         mv -f Supertimeline.csv "$hostdir" && rm -rf $workdir
+
+        # Notify user
+        echo -e "\nCSV Output:\n$hostdir/MftTimeline.csv\n$hostdir/Supertimeline.csv"
+
+        # Display parsing run time
+        echo -e "\nRun time: $(($SECONDS / 3600))hrs $((($SECONDS / 60) % 60))min $(($SECONDS % 60))sec\n"
         exit 0
   ;;
   n|N) echo -e "No selected. Exiting.\n"
