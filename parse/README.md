@@ -34,4 +34,5 @@ DC_RLAB_local.csv
 ## Resources
 * MFTECmd https://github.com/EricZimmerman/MFTECmd
 * Plaso https://github.com/log2timeline/plaso
+* CDQR https://github.com/orlikoski/CDQR
 * Artifact Cruncher https://github.com/alexzorila/artifact-cruncher-vagrant
