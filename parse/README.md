@@ -5,7 +5,7 @@ Parse disk triage collection to supertimeline flat file from Windows Terminal us
 * Tested on: `Windows 11, WSL2, Ubuntu 22.04 guest`
 
 ## Quick Install
-From an `Ubuntu` guest inside `WSL2` on Windows 11 run the following code snippet as `root`.
+From an `Ubuntu 22.04` guest inside `WSL2` on Windows 11 run the following code snippet as `root`.
 ```
 git clone https://github.com/alexzorila/artifact-cruncher.git
 cd artifact-cruncher/parse
