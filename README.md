@@ -4,7 +4,7 @@ Parse Velociraptor triage collection to Supertimeline on Windows. Environment bu
 Tested with: `Windows 11`, `WSL2`, `Ubuntu 22.04 guest`, `Docker`, `Plaso`, `MFTECmd`, `Splunk 9.3`
 
 ## Installation
-Navigate the `Windows` filesystem to a desired install directory. Launch `Ubuntu 22.04` terminal via `WSL2`. Run one of the following code snippets as `root`.
+Navigate the `Windows` filesystem to a desired install directory. Launch `Ubuntu 22.04` terminal via `WSL2`and run one of the following code snippets as `root`.
 > For WSL2 usage and Ubuntu installation see [WSL Cheat Sheet](#wsl-2-cheat-sheet).
 
 ### Quick Install
