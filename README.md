@@ -1,5 +1,5 @@
 # Artifact Cruncher
-Parse Velociraptor triage collection to Supertimeline on Windows. Environment built using WLS2 and Docker. Maintains compatibility with Windows filesystem. Optional ingest into local Splunk container. 
+Parse Velociraptor triage collection to Supertimeline on Windows. Environment built using WSL2 and Docker. Maintains compatibility with Windows filesystem. Optional ingest into local Splunk container. 
 
 Tested with: `Windows 11`, `WSL2`, `Ubuntu 22.04 guest`, `Docker`, `Plaso`, `MFTECmd`, `Splunk 9.3`
 
@@ -78,11 +78,11 @@ Using Windows `Terminal` run one or more of the following `commands` to manage a
 | Operation                      | Command |
 | -------------------------------|---------|
 | List distro install options    | `wsl -l -o` |
-| Install Ubuntu 22.04          | `wls --install Ubuntu-22.04` |
+| Install Ubuntu 22.04          | `wsl --install Ubuntu-22.04` |
 | List installed distros         | `wsl -l` |
 | Restart all distros            | `wsl --shutdown` |
 | Stop Ubuntu distr              | `wsl --terminate Ubuntu` |
-| Uninstall Ubuntu distro        |  `wls --unregister Ubuntu` |
+| Uninstall Ubuntu distro        |  `wsl --unregister Ubuntu` |
 
 Docs: [WSL Basic Commands](https://learn.microsoft.com/en-us/windows/wsl/basic-commands)
 
