@@ -40,13 +40,13 @@ Examples:
 ## Usage
 ### Build Collector
 ```
-CMD> .\collect\build.cmd
+PS> .\collect\build.cmd
 ```
 Docs: [Velociraptor](https://docs.velociraptor.app/knowledge_base/tips/automate_offline_collector/)
 
 ### Collect
 ```
-CMD> .\collect\collect.exe
+PS (Admin)> .\collect\collect.exe
 ```
 Docs: [Velociraptor](https://docs.velociraptor.app/docs/offline_triage/#offline-collections), [KAPE](https://ericzimmerman.github.io/KapeDocs/#!Pages%5C5.-gkape.md), [CyLR](https://github.com/orlikoski/CyLR?tab=readme-ov-file#examples)
 
