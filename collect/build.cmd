@@ -1,4 +1,7 @@
 
+:: Set current directory
+cd %~dp0
+
 :: Get Velociraptor
 mkdir bin 2>nul
 powershell "$ProgressPreference = 'SilentlyContinue'; curl https://github.com/Velocidex/velociraptor/releases/download/v0.73/velociraptor-v0.73.3-windows-amd64.exe -o .\bin\velociraptor.exe"
