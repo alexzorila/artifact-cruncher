@@ -39,8 +39,8 @@ Examples:
 
 ## Usage
 ### Build Collector
-Modify `.\collect\conf\spec_file.yaml` as needed to configure collection artifacts.  
-Build `collector.exe` by running `.\collect\build.cmd` from Windows Explorer or Terminal.
+Modify `collect`\\`conf`\\`spec_file.yaml` as needed to add or remove collection artifacts.  
+Build `collector.exe` by running `collect`\\`build.cmd` from Windows Explorer or Terminal.
 
 Docs: [Velociraptor](https://docs.velociraptor.app/knowledge_base/tips/automate_offline_collector/)
 
