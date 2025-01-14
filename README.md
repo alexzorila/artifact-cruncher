@@ -39,9 +39,9 @@ Examples:
 
 ## Usage
 ### Build Collector
-```
-PS> .\collect\build.cmd
-```
+Modify `.\collect\conf\spec_file.yaml` as needed to configure collection artifacts.  
+Build `collector.exe` by running `.\collect\build.cmd` from Windows Explorer or Terminal.
+
 Docs: [Velociraptor](https://docs.velociraptor.app/knowledge_base/tips/automate_offline_collector/)
 
 ### Collect
