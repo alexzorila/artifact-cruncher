@@ -38,13 +38,17 @@ Examples:
 ```
 
 ## Usage
-<!---
+### Build Collector
+```
+CMD> .\collect\build.cmd
+```
+Docs: [Velociraptor](https://docs.velociraptor.app/knowledge_base/tips/automate_offline_collector/)
+
 ### Collect
 ```
-PS> .\velociraptor_sans_triage.exe
+CMD> .\collect\collect.exe
 ```
 Docs: [Velociraptor](https://docs.velociraptor.app/docs/offline_triage/#offline-collections), [KAPE](https://ericzimmerman.github.io/KapeDocs/#!Pages%5C5.-gkape.md), [CyLR](https://github.com/orlikoski/CyLR?tab=readme-ov-file#examples)
--->
 
 ### Parse
 ```
