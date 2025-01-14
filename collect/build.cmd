@@ -1,5 +1,6 @@
 
 :: Get Velociraptor
+mkdir dist 2>nul
 powershell "$ProgressPreference = 'SilentlyContinue'; curl https://github.com/Velocidex/velociraptor/releases/download/v0.73/velociraptor-v0.73.3-windows-amd64.exe -o .\bin\velociraptor.exe"
 
 :: Build Velociraptor Offline collector from spec file
