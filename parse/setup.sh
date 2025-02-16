@@ -9,13 +9,17 @@ fi
 # Install dependencies
 echo -e "\n[$(date '+%d/%m/%Y %H:%M:%S')]: Installing dependencies."
 apt update -y
-apt install dotnet6 unzip sleuthkit -y
+apt install unzip sleuthkit -y
+
+# Install .NET SDK 9.0
+curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel 9.0
+export PATH="$PATH:$HOME/.dotnet" && source ~/.bashrc
 
 # Install MFTECmd
 echo -e "\n\n[$(date '+%d/%m/%Y %H:%M:%S')]: Installing MFTECmd."
 git clone https://github.com/EricZimmerman/MFTECmd.git /opt/MFTECmd
-dotnet publish /opt/MFTECmd/ -r ubuntu.22.04-x64 --self-contained --framework net6.0
-cp -fs /opt/MFTECmd/MFTECmd/bin/Debug/net6.0/ubuntu.22.04-x64/MFTECmd /usr/local/bin/
+dotnet publish /opt/MFTECmd/ --framework net9.0 --os linux --self-contained
+cp -fs /opt/MFTECmd/MFTECmd/bin/Release/net9.0/linux-x64/publish/MFTECmd /usr/local/bin/
 
 # Install Docker if missing
 echo -e "\n\n[$(date '+%d/%m/%Y %H:%M:%S')]: Installing Docker."
