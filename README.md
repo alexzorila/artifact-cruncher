@@ -82,8 +82,9 @@ Using Windows `Terminal` run one or more of the following `commands` to manage a
 | Operation                      | Command |
 | -------------------------------|---------|
 | List distro install options    | `wsl -l -o` |
-| Install Ubuntu 22.04          | `wsl --install Ubuntu-22.04` |
+| Install Ubuntu 22.04           | `wsl --install Ubuntu-22.04` |
 | List installed distros         | `wsl -l` |
+| Set default distro             | `wsl --set-default Ubuntu-22.04` |
 | Restart all distros            | `wsl --shutdown` |
 | Stop Ubuntu distr              | `wsl --terminate Ubuntu` |
 | Uninstall Ubuntu distro        |  `wsl --unregister Ubuntu` |
