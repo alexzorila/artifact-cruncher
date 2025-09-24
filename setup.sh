@@ -13,23 +13,28 @@ valid_arg=false
 for arg in "$@"; do
     case "$arg" in
         parse) 	
-	        echo -e "\nExecuting ./parse/setup.sh..."
-		cd parse; chmod +x ./setup.sh; ./setup.sh; cd ..; valid_arg=true 
-		;;
-	splunk) 
-		echo -e "\nExecuting ./splunk/setup.sh..."
-		cd splunk; chmod +x ./setup.sh; ./setup.sh; cd ..; valid_arg=true 
-		;;
+	    	echo -e "\nExecuting ./parse/setup.sh..."
+			cd parse; chmod +x ./setup.sh; ./setup.sh; cd ..; valid_arg=true 
+			;;
+	    splunk) 
+			echo -e "\nExecuting ./splunk/setup.sh..."
+			cd splunk; chmod +x ./setup.sh; ./setup.sh; cd ..; valid_arg=true 
+			;;
+	    timesketch) 
+			echo -e "\nExecuting ./timesketch/setup.sh..."
+			cd timesketch; chmod +x ./setup.sh; ./setup.sh; cd ..; valid_arg=true 
+			;;
     esac
 done
 
 # Help page. Notify user if no valid argument provided
 if [ "$valid_arg" = false ]; then
-    echo -e "\nError   : No valid script arguments passed! Specify one or both to install corresponding module."
-	echo -e "Options : 'parse', 'splunk'"
+    echo -e "\nError   : No valid script arguments passed! Specify one or more to install corresponding module."
+	echo -e "Options : 'parse', 'splunk', 'timesketch'"
 	echo -e "\nExamples:"
-	echo -e "\t- Install both   : ./setup.sh parse splunk"
+	echo -e "\t- Install multiple   : ./setup.sh parse splunk timesketch"
 	echo -e "\t- Install parser : ./setup.sh parse"
+	echo -e "\t- Install timesketch : ./setup.sh timesketch"
 	echo -e "\t- Install splunk : ./setup.sh splunk\n"
     exit 1
 fi
