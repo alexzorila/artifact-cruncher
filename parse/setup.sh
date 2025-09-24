@@ -28,7 +28,7 @@ service docker start
 
 # Install Plaso
 echo -e "\n\n[$(date '+%d/%m/%Y %H:%M:%S')]: Installing Plaso."
-docker pull log2timeline/plaso
+docker pull log2timeline/plaso:20240826
 
 # Install parsing script
 echo -e "\n\n[$(date '+%d/%m/%Y %H:%M:%S')]: Installing Parsing Script."
