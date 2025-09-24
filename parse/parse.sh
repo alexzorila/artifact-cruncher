@@ -87,16 +87,21 @@ case "$choice" in
         # Expand triage collection and remove extra files
         unzip $filename -d exp && mv ./exp/uploads/* ./files && rm -rf exp $filename
 
-        # Parse triage collection to CSV Supertimeline, excluding MFT
+        # Parse triage collection to Plaso, excluding MFT
         docker run --rm -v .:/data log2timeline/plaso:20240826 \
-            psteal --parsers \!mft,\!onedrive_log --hashers none --archives none \
-                   --source /data/files -w /data/Supertimeline.csv
+            log2timeline \
+            --parsers \!mft,\!onedrive_log --hashers none --archives none \
+            --storage-file /data/Supertimeline.plaso /data/files
+        
+        # Parse Plaso to CSV Supertimeline, excluding MFT
+        docker run --rm -v .:/data log2timeline/plaso:20240826 \
+            psort -w /data/Supertimeline.csv /data/Supertimeline.plaso
 
-        # Move CSV to host
-        mv -f Supertimeline.csv "$hostdir" && rm -rf $workdir
+        # Move Plaso, CSV to host
+        mv -f Supertimeline.plaso Supertimeline.csv "$hostdir" && rm -rf $workdir
 
         # Notify user
-        echo -e "\nCSV Output:\n$hostdir/MftTimeline.csv\n$hostdir/Supertimeline.csv"
+        echo -e "\nCSV Output:\n$hostdir/MftTimeline.csv\n$hostdir/Supertimeline.(plaso|csv)"
 
         # Display parsing run time
         echo -e "\nRun time: $(($SECONDS / 3600))hrs $((($SECONDS / 60) % 60))min $(($SECONDS % 60))sec\n"
