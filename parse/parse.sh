@@ -88,7 +88,7 @@ case "$choice" in
         unzip $filename -d exp && mv ./exp/uploads/* ./files && rm -rf exp $filename
 
         # Parse triage collection to CSV Supertimeline, excluding MFT
-        docker run --rm -v .:/data log2timeline/plaso \
+        docker run --rm -v .:/data log2timeline/plaso:20240826 \
             psteal --parsers \!mft,\!onedrive_log --hashers none --archives none \
                    --source /data/files -w /data/Supertimeline.csv
 
