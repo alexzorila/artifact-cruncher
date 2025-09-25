@@ -42,8 +42,8 @@ case "$choice" in
         hostname=$(echo $filename | grep -oP '(?<=Collection-).*(?=-\d{4}-\d{2}-\d{2}T\d{2}_\d{2}_\d{2}Z)')
         datetime=$(date -d "today" +"%Y%m%d%H%M")
         workdir="/tmp/$hostname/$datetime"
-        hostdir=$PWD/$hostname/$datetime
-        mkdir -p $workdir $hostdir
+        hostdir="$PWD/$hostname/$datetime"
+        mkdir -p "$workdir" "$hostdir"
         cp $filename $workdir
         cd $workdir
 
