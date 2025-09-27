@@ -1,6 +1,6 @@
 services:
   splunk:
-    image: splunk/splunk:latest
+    image: splunk/splunk:9.4.5
     ports:
       - "8000:8000"
     environment:
@@ -10,3 +10,4 @@ services:
       - ./splunk-data:/home/splunk/data
       - ./bootstrap.sh:/home/splunk/bootstrap.sh
     restart: unless-stopped
+
