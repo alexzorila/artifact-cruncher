@@ -39,4 +39,4 @@ cp -fs /opt/parse/parse /usr/local/bin/
 
 # Cleanup
 rm -rf get-docker.sh
-echo -e "\n\n[$(date '+%d/%m/%Y %H:%M:%S')]: Setup completed.\n"
+echo -e "\n\n[$(date '+%d/%m/%Y %H:%M:%S')]: Parser setup done!\n"
