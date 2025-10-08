@@ -17,6 +17,7 @@ docker compose up -d && \
 	grep splunk | grep -m 1 "healthy"; do sleep 1 ; done
 
 # Apply Splunk custom config. Wait until fully started (healthy)
+echo -e "\n\n[$(date '+%d/%m/%Y %H:%M:%S')]: Configuring Splunk."
 docker compose exec -u root splunk /bin/sh -c "/home/splunk/bootstrap.sh"
 docker compose restart && \
 	until docker ps --format "table {{.Image}} | {{.Status}}" | \
