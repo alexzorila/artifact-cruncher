@@ -25,3 +25,6 @@ docker compose up -d && \
 
 # Create default user. Wait until fully started (healthy)
 sudo docker compose exec timesketch-web tsctl create-user admin	--password admin
+
+# Echo user notification
+echo -e "\n\n[$(date '+%d/%m/%Y %H:%M:%S')]: Timesketch setup done!\n"
