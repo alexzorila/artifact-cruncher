@@ -26,6 +26,7 @@ docker compose up -d && \
 	grep opensearch | grep -m 1 "Up"; do sleep 3 ; done
 
 # Create default user. Wait until fully started (healthy)
+echo -e "\n[$(date '+%d/%m/%Y %H:%M:%S')]: Creating default Timesketch user."
 sudo docker compose exec timesketch-web tsctl create-user admin	--password admin
 
 # Echo user notification
