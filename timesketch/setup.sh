@@ -21,7 +21,7 @@ rm -rf /opt/deploy_timesketch.sh
 cd /opt/timesketch
 docker compose up -d && \
 	until docker ps --format "table {{.Image}} | {{.Status}}" | \
-	grep opensearch | grep -m 1 "Up"; do sleep 1 ; done
+	grep opensearch | grep -m 1 "Up"; do sleep 3 ; done
 
 # Create default user. Wait until fully started (healthy)
 sudo docker compose exec timesketch-web tsctl create-user admin	--password admin
