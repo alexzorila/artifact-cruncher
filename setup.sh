@@ -40,4 +40,4 @@ if [ "$valid_arg" = false ]; then
 fi
 
 # Notify user. Script completed execution
-echo -e "\n[$(date '+%d/%m/%Y %H:%M:%S')]: Done!\n"
+echo -e "\n[$(date '+%d/%m/%Y %H:%M:%S')]: Global setup script done!\n"
