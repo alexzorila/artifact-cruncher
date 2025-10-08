@@ -11,6 +11,7 @@ docker > /dev/null 2>&1 || curl -fsSL https://get.docker.com | sh
 service docker start
 
 # Install Timesketch Docker
+echo -e "\n[$(date '+%d/%m/%Y %H:%M:%S')]: Installing Timesketch."
 cd /opt
 curl -s -O https://raw.githubusercontent.com/google/timesketch/master/contrib/deploy_timesketch.sh
 chmod 755 deploy_timesketch.sh
@@ -18,6 +19,7 @@ yes n | ./deploy_timesketch.sh
 rm -rf /opt/deploy_timesketch.sh
 
 # Start Timesketch
+echo -e "\n[$(date '+%d/%m/%Y %H:%M:%S')]: Starting Timesketch."
 cd /opt/timesketch
 docker compose up -d && \
 	until docker ps --format "table {{.Image}} | {{.Status}}" | \
