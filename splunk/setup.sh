@@ -11,6 +11,7 @@ docker > /dev/null 2>&1 || curl -fsSL https://get.docker.com | sh
 service docker start
 
 # Install Splunk Docker. Wait until fully started (healthy)
+echo -e "\n\n[$(date '+%d/%m/%Y %H:%M:%S')]: Installing Splunk."
 docker compose up -d && \
 	until docker ps --format "table {{.Image}} | {{.Status}}" | \
 	grep splunk | grep -m 1 "healthy"; do sleep 1 ; done
