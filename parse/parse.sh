@@ -95,7 +95,7 @@ case "$choice" in
         
         # Parse Plaso to CSV Supertimeline, excluding MFT
         docker run --rm -v .:/data log2timeline/plaso:20240826 \
-            psort -w /data/Supertimeline.csv /data/Supertimeline.plaso
+            psort -o l2tcsv -w /data/Supertimeline.csv /data/Supertimeline.plaso
 
         # Move Plaso, CSV to host
         mv -f Supertimeline.plaso Supertimeline.csv "$hostdir" && rm -rf $workdir
