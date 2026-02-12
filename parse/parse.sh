@@ -47,6 +47,18 @@ case "$choice" in
         cp $filename $workdir
         cd $workdir
 
+        # Handle password protected collection
+        if unzip -l "$filename" | grep -q 'data.zip'; then
+            EXIT=1
+            while [ ! $EXIT -eq 0 ]
+            do
+                read -p "ZIP Password Required: " zip_password
+                7z e -p"$zip_password" -y -o. -bso0 "$filename" "data.zip"
+                EXIT=$?
+            done
+            mv -f data.zip "$filename"
+        fi
+
         ########################## Create Timeline ############################
 
         # Create MFT timeline work directory
