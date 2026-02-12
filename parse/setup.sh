@@ -9,7 +9,7 @@ fi
 # Install dependencies
 echo -e "\n[$(date '+%d/%m/%Y %H:%M:%S')]: Installing dependencies."
 apt update -y
-apt install unzip sleuthkit curl -y
+apt install unzip sleuthkit curl p7zip-full -y
 
 # Install .NET SDK 9.0
 curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel 9.0
