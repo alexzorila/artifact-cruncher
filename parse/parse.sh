@@ -93,17 +93,17 @@ case "$choice" in
 
         ########################### Hayabusa Detect ###########################
         
-		# Create data source directory
+        # Create data source directory
         mkdir files
 
         # Expand triage collection and remove extra files
         unzip $filename -d exp && mv ./exp/uploads/* ./files && rm -rf exp $filename
         
-		# Scan triage collection with Hayabusa
+        # Scan triage collection with Hayabusa
         hayabusa csv-timeline -d ./files -o Hayabusa.csv \
-		    --no-wizard --min-level medium --proven-rules
+            --no-wizard --min-level medium --proven-rules
             
-		# Move Hayabusa CSV to host
+        # Move Hayabusa CSV to host
         mv -f Hayabusa.csv "$hostdir"
 
         
@@ -119,11 +119,11 @@ case "$choice" in
         docker run --rm -v .:/data log2timeline/plaso:20240826 \
             psort -o l2tcsv -w /data/Supertimeline.csv /data/Supertimeline.plaso
 
-        # Move Plaso, CSV to host
-        mv -f Supertimeline.plaso Supertimeline.csv "$hostdir" && rm -rf $workdir
+        # Move Supertimeline CSV to host
+        mv -f Supertimeline.csv "$hostdir" && rm -rf $workdir
 
         # Notify user
-        echo -e "\nCSV Output:\n$hostdir/MftTimeline.csv\n$hostdir/Supertimeline.(plaso|csv)"
+        echo -e "\nCSV Output:\n$hostdir/Hayabusa.csv\n$hostdir/MftTimeline.csv\n$hostdir/Supertimeline.csv"
 
         # Display parsing run time
         echo -e "\nRun time: $(($SECONDS / 3600))hrs $((($SECONDS / 60) % 60))min $(($SECONDS % 60))sec\n"
