@@ -90,7 +90,6 @@ case "$choice" in
         # Notify user
         echo -e "\nDone!\n"
 
-
         ########################### Hayabusa Detect ###########################
         
         # Create data source directory
@@ -106,7 +105,6 @@ case "$choice" in
         # Move Hayabusa CSV to host
         mv -f Hayabusa.csv "$hostdir"
 
-        
         ######################### Create Supertimeline ########################
 
         # Parse triage collection to Plaso, excluding MFT
