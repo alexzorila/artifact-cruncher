@@ -34,5 +34,6 @@ DC_RLAB_local/202408262120/Supertimeline.csv
 ## Resources
 * MFTECmd https://github.com/EricZimmerman/MFTECmd
 * Plaso https://github.com/log2timeline/plaso
+* Hayabusa https://github.com/Yamato-Security/hayabusa
 * CDQR https://github.com/orlikoski/CDQR
 * Artifact Cruncher https://github.com/alexzorila/artifact-cruncher-vagrant
