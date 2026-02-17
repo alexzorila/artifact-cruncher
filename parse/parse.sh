@@ -91,13 +91,23 @@ case "$choice" in
         echo -e "\nDone!\n"
 
 
-        ######################### Create Supertimeline ########################
-
-        # Create Plaso data source directory
+        ########################### Hayabusa Detect ###########################
+        
+		# Create data source directory
         mkdir files
 
         # Expand triage collection and remove extra files
         unzip $filename -d exp && mv ./exp/uploads/* ./files && rm -rf exp $filename
+        
+		# Scan triage collection with Hayabusa
+        hayabusa csv-timeline -d ./files -o Hayabusa.csv \
+		    --no-wizard --min-level medium --proven-rules
+            
+		# Move Hayabusa CSV to host
+        mv -f Hayabusa.csv "$hostdir"
+
+        
+        ######################### Create Supertimeline ########################
 
         # Parse triage collection to Plaso, excluding MFT
         docker run --rm -v .:/data log2timeline/plaso:20240826 \
