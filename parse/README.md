@@ -27,6 +27,7 @@ parse -f DC_RLAB_local.zip
 Plaso and CSV flat files will be created in the `same directory` tree as the zip file. Expect `10 to 35 minutes` parsing time, depending on the collection file size.
 
 ```
+DC_RLAB_local/202408262120/Hayabusa.csv
 DC_RLAB_local/202408262120/MftTimeline.csv
 DC_RLAB_local/202408262120/Supertimeline.csv
 ```
