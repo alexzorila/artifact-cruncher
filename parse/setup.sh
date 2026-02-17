@@ -30,6 +30,15 @@ service docker start
 echo -e "\n\n[$(date '+%d/%m/%Y %H:%M:%S')]: Installing Plaso."
 docker pull log2timeline/plaso:20240826
 
+# Install Hayabusa
+echo -e "\n\n[$(date '+%d/%m/%Y %H:%M:%S')]: Installing Hayabusa."
+mkdir -p /opt/hayabusa
+wget https://github.com/Yamato-Security/hayabusa/releases/latest/download/hayabusa-3.8.0-lin-x64-musl.zip -O /opt/hayabusa/hayabusa.zip --no-check-certificate
+unzip -o /opt/hayabusa/hayabusa.zip -d /opt/hayabusa
+mv -f /opt/hayabusa/hayabusa-3.8.0-lin-x64-musl /opt/hayabusa/hayabusa
+chmod +x /opt/hayabusa/hayabusa
+cp -fs /opt/hayabusa/hayabusa /usr/local/bin/
+
 # Install parsing script
 echo -e "\n\n[$(date '+%d/%m/%Y %H:%M:%S')]: Installing Parsing Script."
 mkdir /opt/parse
@@ -38,5 +47,5 @@ cp -f ./parse.sh /opt/parse/parse
 cp -fs /opt/parse/parse /usr/local/bin/
 
 # Cleanup
-rm -rf get-docker.sh
+rm -rf get-docker.sh hayabusa-3.8.0-lin-x64-musl.zip
 echo -e "\n\n[$(date '+%d/%m/%Y %H:%M:%S')]: Parser setup done!\n"
