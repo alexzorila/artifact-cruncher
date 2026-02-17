@@ -1,4 +1,4 @@
-# Artifact Cruncher Backend (Plaso) (MFTECmd)
+# Artifact Cruncher Backend (Plaso) (MFTECmd) (Hayabusa)
 Parse disk triage collection to supertimeline flat file from Windows Terminal using WSL2 and Docker. Intended to convert ZIP to Plaso and CSV. Output compatible with Timesketch or Splunk ingestion. Individually parse $MFT with MFTECmd and remaining artifacts with Plaso for speed.
 
 * Data directory: `Windows file system`, `current directory`, `.zip`
